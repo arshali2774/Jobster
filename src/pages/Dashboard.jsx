@@ -1,7 +1,12 @@
 import React from 'react';
+import Wrapper from '../assets/wrappers/SharedLayout';
 
 const Dashboard = () => {
-  return <div>Dashboard</div>;
+  return (
+    <Wrapper>
+      <h2>Dashboard</h2>
+    </Wrapper>
+  );
 };
 
 export default Dashboard;
