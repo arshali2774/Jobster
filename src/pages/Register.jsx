@@ -1,10 +1,11 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import Wrapper from '../assets/wrappers/RegisterPage';
 import { FormRow, Logo } from '../components';
 import { toast } from 'react-hot-toast';
 /* ------------------------------ redux imports ----------------------------- */
 import { useDispatch, useSelector } from 'react-redux';
 import { loginUser, registerUser } from '../features/user/userSlice';
+import { useNavigate } from 'react-router-dom';
 
 /* -------------------------- local state for redux ------------------------- */
 const initialState = {
@@ -15,6 +16,7 @@ const initialState = {
 };
 
 const Register = () => {
+  const navigate = useNavigate();
   const [Values, setValues] = useState(initialState);
   /* ---------------------------- integrating redux --------------------------- */
   const { user, isLoading } = useSelector((store) => store.user);
@@ -43,6 +45,17 @@ const Register = () => {
   const toggleMember = () => {
     setValues({ ...Values, isMember: !Values.isMember });
   };
+  /* ---------------------- navigating user to Dashboard ---------------------- */
+  useEffect(() => {
+    const timer = () =>
+      setTimeout(() => {
+        navigate('/');
+      }, 2000);
+    if (user) {
+      timer();
+    }
+    return () => clearTimeout(timer);
+  }, [user]);
   return (
     <Wrapper className='full-page'>
       <form
