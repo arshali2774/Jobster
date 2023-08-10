@@ -1,7 +1,13 @@
 import React from 'react';
-import { Landing, Error, Dashboard, Register } from './pages';
+import { Landing, Error, Register } from './pages';
+import {
+  Dashboard,
+  Statistics,
+  AllJobs,
+  AddJob,
+  Profile,
+} from './pages/Dashboard';
 import { RouterProvider, createBrowserRouter } from 'react-router-dom';
-import { Logo } from './components';
 import { Toaster } from 'react-hot-toast';
 
 const App = () => {
@@ -9,6 +15,24 @@ const App = () => {
     {
       path: '/',
       element: <Dashboard />,
+      children: [
+        {
+          index: true,
+          element: <Statistics />,
+        },
+        {
+          path: 'all-jobs',
+          element: <AllJobs />,
+        },
+        {
+          path: 'add-job',
+          element: <AddJob />,
+        },
+        {
+          path: 'profile',
+          element: <Profile />,
+        },
+      ],
     },
     {
       path: 'landing',
@@ -26,7 +50,7 @@ const App = () => {
   return (
     <>
       <Toaster />
-      <RouterProvider router={router} />;
+      <RouterProvider router={router} />
     </>
   );
 };
