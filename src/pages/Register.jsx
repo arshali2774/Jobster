@@ -91,6 +91,7 @@ const Register = () => {
             type='button'
             onClick={toggleMember}
             className='member-btn'
+            disabled={isLoading}
           >
             {Values.isMember ? 'Register' : 'Login'}
           </button>
