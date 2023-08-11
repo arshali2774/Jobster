@@ -2,6 +2,7 @@ import React from 'react';
 import Wrapper from '../../assets/wrappers/SharedLayout';
 import { Outlet } from 'react-router-dom';
 import { BigSidebar, Navbar, SmallSidebar } from '../../components';
+import { useSelector } from 'react-redux';
 
 const Dashboard = () => {
   return (
