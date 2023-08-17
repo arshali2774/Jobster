@@ -12,7 +12,7 @@ const Navbar = () => {
   };
   const [showLogout, setShowLogout] = useState(false);
   const logout = () => {
-    dispatch(logoutUser());
+    dispatch(logoutUser('Logging Out ...'));
   };
   return (
     <Wrapper>

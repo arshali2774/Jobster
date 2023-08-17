@@ -1,5 +1,5 @@
 import React from 'react';
-import { Landing, Error, Register } from './pages';
+import { Landing, Error, Register, ProtectedRoute } from './pages';
 import {
   Dashboard,
   Statistics,
@@ -14,7 +14,11 @@ const App = () => {
   const router = createBrowserRouter([
     {
       path: '/',
-      element: <Dashboard />,
+      element: (
+        <ProtectedRoute>
+          <Dashboard />
+        </ProtectedRoute>
+      ),
       children: [
         {
           index: true,
