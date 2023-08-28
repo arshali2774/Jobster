@@ -23,7 +23,10 @@ const SearchContainer = () => {
     };
   };
   const optimizedDebounce = useMemo(() => debounce(), []);
-  const handleSearch = (e) => {};
+  const handleSearch = (e) => {
+    if (isLoading) return;
+    dispatch(handleChange({ name: e.target.name, value: e.target.value }));
+  };
   const handleSubmit = (e) => {
     e.preventDefault();
     setLocalSearch('');
