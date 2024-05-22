@@ -58,10 +58,7 @@ const Register = () => {
   }, [user]);
   return (
     <Wrapper className='full-page'>
-      <form
-        className='form'
-        onSubmit={handleSubmit}
-      >
+      <form className='form' onSubmit={handleSubmit}>
         <Logo />
 
         <h3>{Values.isMember ? 'login' : 'register'}</h3>
@@ -92,10 +89,7 @@ const Register = () => {
           labelText='Password'
           handleChange={handleChange}
         />
-        <button
-          type='submit'
-          className='btn btn-block'
-        >
+        <button type='submit' className='btn btn-block'>
           {isLoading ? 'loading...' : 'Submit'}
         </button>
         <button
@@ -104,7 +98,11 @@ const Register = () => {
           disabled={isLoading}
           onClick={() =>
             dispatch(
-              loginUser({ email: 'testUser@test.com', password: 'secret' })
+              loginUser({
+                name: 'john',
+                email: 'john@gmail.com',
+                password: 'secret',
+              })
             )
           }
         >
